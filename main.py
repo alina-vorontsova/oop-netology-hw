@@ -99,7 +99,7 @@ class Reviewer (Mentor):
         self.courses_attached = []
 
     def rate_hw(self, student, course, grade):
-        if isinstance(student, Student) and course in self.courses_attached and course in student.courses_in_progress:
+        if isinstance(student, Student) and course in self.courses_attached and course in student.courses_in_progress and 0 <= grade < 11:
             if course in student.grades:
                 student.grades[course] += [grade]
             else:
@@ -168,6 +168,3 @@ reviewer2.rate_hw(student2, 'Java', 3)
 reviewer2.rate_hw(student2, 'Java', 9)
 reviewer1.rate_hw(student2, 'Python', 2)
 reviewer1.rate_hw(student2, 'Python', 7)
-
-print(student1.__lt__(lecturer1))
-print(lecturer1.__lt__(student2))
