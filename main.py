@@ -41,16 +41,8 @@ class Student:
         return info_
 
     def __lt__(self, other):
-        if not isinstance(other, Student):
-            error = 'Студентов можно сравнивать только со студентами.'
-            return error
-        else:
-            if self._average() < other._average():
-                result1 = f'Студент {self.name} {self.surname} имеет меньший средний балл за домашние задания, чем студент {other.name} {other.surname}.'
-                return result1
-            else:
-                result2 = f'Студент {self.name} {self.surname} имеет больший средний балл за домашние задания, чем студент {other.name} {other.surname}.'
-                return result2
+        res = self._average() < other._average()
+        return res
 
 class Mentor:
     def __init__(self, name, surname):
@@ -82,16 +74,8 @@ class Lecturer (Mentor):
         return info_
 
     def __lt__(self, other):
-        if not isinstance(other, Lecturer):
-            error = 'Лекторов можно сравнивать только с лекторами.'
-            return error
-        else:
-            if self._average() < other._average():
-                result1 = f'Лектор {self.name} {self.surname} имеет меньший средний балл за лекции, чем лектор {other.name} {other.surname}.'
-                return result1
-            else:
-                result2 = f'Лектор {self.name} {self.surname} имеет больший средний балл за лекции, чем лектор {other.name} {other.surname}.'
-                return result2
+        res = self._average() < other._average()
+        return res
 
 class Reviewer (Mentor):
     def __init__(self, name, surname):
